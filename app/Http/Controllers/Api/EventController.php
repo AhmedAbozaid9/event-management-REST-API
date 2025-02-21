@@ -29,7 +29,8 @@ class EventController extends Controller
             "end_date" => "required|date|after:start_date",
         ]);
 
-        $newEvent = new EventResource(Event::create([...$event, 'user_id' => 1]));
+        $newEvent = new EventResource(Event::create([ ...$event, 'user_id' => 1]));
+
         return $newEvent;
     }
 

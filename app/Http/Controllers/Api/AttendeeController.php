@@ -18,6 +18,7 @@ class AttendeeController extends Controller
         return AttendeeResource::collection(
             $attendees->paginate()
         );
+
     }
 
     /**
