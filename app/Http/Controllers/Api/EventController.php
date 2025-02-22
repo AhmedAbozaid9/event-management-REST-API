@@ -14,7 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return EventResource::collection(Event::with(['user'])->get());
+        return EventResource::collection(Event::with(['user'])->paginate());
     }
 
     /**
@@ -29,7 +29,7 @@ class EventController extends Controller
             "end_date" => "required|date|after:start_date",
         ]);
 
-        $newEvent = new EventResource(Event::create([ ...$event, 'user_id' => 1]));
+        $newEvent = new EventResource(Event::create([...$event, 'user_id' => 1]));
 
         return $newEvent;
     }
